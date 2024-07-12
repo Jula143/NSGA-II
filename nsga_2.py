@@ -4,22 +4,20 @@ import random
 import matplotlib.pyplot as plt
 import numpy as np
 
-# First function to optimize
+
 def zdt1_f1(x):
     return x[0]
 
-# Second function to optimize
 def zdt1_f2(x):
     g_x = 1 + 9 * sum(x[1:]) / (len(x) - 1)
     h_x = 1 - math.sqrt(x[0] / g_x)
     f2 = g_x * h_x
     return f2
 
-# First function to optimize
+
 def zdt2_f1(x):
     return x[0]
 
-# Second function to optimize
 def zdt2_f2(x):
     g_x = 1 + 9 * sum(x[1:]) / (len(x) - 1)
     h_x = 1 - math.pow(x[0] / g_x, 2)
@@ -30,34 +28,32 @@ def zdt2_f2(x):
 def zdt3_f1(x):
     return x[0]
 
-# Second function to optimize
 def zdt3_f2(x):
     g_x = 1 + 9 * sum(x[1:]) / (len(x) - 1)
     h_x = 1 - math.sqrt(x[0] / g_x) - (x[0]/g_x) * math.sin(10*math.pi*x[0])
     f2 = g_x * h_x
     return f2
 
-# First function to optimize
+
 def zdt4_f1(x):
     return x[0]
 
-# Second function to optimize
 def zdt4_f2(x):
     g_x = 1 + 10 * (len(x) - 1) + sum(math.pow(xi, 2) - 10 * math.cos(4 * math.pi * xi) for xi in x[1:])
     h_x = 1 - math.sqrt(x[0] / g_x)
     f2 = g_x * h_x
     return f2
 
-# First function to optimize
+
 def zdt6_f1(x):
     return 1 - np.exp(-4 * x[0]) * np.sin(6 * np.pi * x[0]) ** 6
 
-# Second function to optimize
 def zdt6_f2(x):
     f1 = 1 - np.exp(-4 * x[0]) * np.sin(6 * np.pi * x[0]) ** 6
     g = 1 + 9 * np.sum(x[1:]) / (len(x) - 1) ** 0.25
     f2 = g * (1 - (f1 / g) ** 2)
     return f2
+
 
 # Function to find index of list
 def index_of(a, lst):
